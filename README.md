@@ -1,43 +1,55 @@
-# 📁 How to Create a Folder in GitHub
+# 🐄 BreedNet – AI-Based Cattle & Buffalo Breed Identification
 
-Creating folders in GitHub is slightly different from your local system.  
-GitHub does **not support empty folders**, so you must create at least one file inside the folder.
-
----
-
-## 🚀 Method 1: Create Folder Directly on GitHub (Easy Way)
-
-1. Open your repository on GitHub  
-2. Click on **"Add file" → "Create new file"**  
-3. In the filename field, type:
-
-   folder-name/file-name
-
-   👉 Example:  
-   backend/main.py
-
-4. Add some content (even a single line is enough)  
-5. Scroll down and click **"Commit new file"**
-
-✅ This will automatically create the folder with the file inside.
+BreedNet is a mobile-based AI system that identifies cattle and buffalo breeds using images. It uses computer vision and deep learning to provide fast, accurate, and real-time predictions, even in rural areas with low connectivity.
 
 ---
 
-## 📤 Method 2: Upload Folder from Your System
+## 🚀 Features
 
-1. Click on **"Add file" → "Upload files"**  
-2. Drag and drop your folder from your computer  
-3. Click **"Commit changes"**
-
-✅ Your folder and all files inside it will be uploaded.
+- 📸 Image-based breed detection using mobile camera or upload  
+- 🤖 AI-powered classification using CNN models  
+- 📊 Crossbreed percentage prediction (useful for Indian livestock)  
+- ⚡ Fast response time (2–5 seconds)  
+- 📱 Mobile-friendly design for low-power devices  
+- 🌐 Offline support with later data sync  
+- 🔗 Ready for integration with Bharat Pashudhan App (BPA)
 
 ---
 
-## 💻 Method 3: Using Git Commands (Recommended for Developers)
+## 🏗️ System Architecture
 
-Create folder locally:
+The system follows a microservices-based architecture:
 
-```bash
-mkdir backend
-cd backend
-touch main.py
+- API Gateway → Handles incoming requests  
+- Ingestion Service → Accepts image data  
+- AI Model Service → Performs prediction  
+- Persistence Service → Stores results  
+- Reporting Service → Generates analytics  
+
+---
+
+## 🧠 Tech Stack
+
+### 🔹 Frontend
+- HTML  
+- CSS  
+- JavaScript  
+
+### 🔹 Backend
+- Python  
+- FastAPI  
+- Uvicorn  
+
+### 🔹 AI/ML
+- TensorFlow  
+- Keras  
+- OpenCV  
+- NumPy  
+- Pillow  
+
+### 🔹 Database
+- SQLite  
+
+---
+
+## 📂 Project Structure
