@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BreedNet | AI Cattle & Buffalo Recognition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">🐄</div>
+    BreedNet
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#predict">Predict</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#predict" class="nav-cta">Start Predicting →</a></li>
+  </ul>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="home">
+
+  <!-- Floating info cards -->
+  <div class="hero-float left">
+    <div class="f-icon">🐃</div>
+    <div>
+      <div style="font-size:0.85rem;font-weight:700;color:#eef7f2">Buffalo Detected</div>
+      <div style="font-size:0.72rem;color:#5a8470">Murrah · 96% Confidence</div>
+    </div>
+  </div>
+
+  <div class="hero-float right">
+    <div class="f-icon">🐄</div>
+    <div>
+      <div style="font-size:0.85rem;font-weight:700;color:#eef7f2">Cow Identified</div>
+      <div style="font-size:0.72rem;color:#5a8470">Gir · 92% Confidence</div>
+    </div>
+  </div>
+
+  <!-- <span class="hero-badge">
+    <span class="dot"></span>
+    Capstone Research Project · 2026
+  </span> -->
+
+  <h1>
+    Identify Cattle Breeds<br>
+    with <span>AI Precision</span>
+  </h1>
+
+  <p>
+    BreedNet uses deep learning to accurately classify cattle and buffalo breeds
+    from a single image — instantly, reliably, and with high confidence.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#predict" class="btn-primary">🔍 Start Prediction</a>
+    <a href="#how-it-works" class="btn-secondary">Learn How It Works →</a>
+  </div>
+</section>
+
+<!-- ==================== STATS STRIP ==================== -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">95%+</div>
+    <div class="stat-label">Model<br>Accuracy</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">&lt;2s</div>
+    <div class="stat-label">Prediction<br>Response</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">15+</div>
+    <div class="stat-label">Cattle &amp;<br>Buffalo Breeds</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">3</div>
+    <div class="stat-label">File Formats<br>Supported</div>
+  </div>
+</div>
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="section" id="how-it-works">
+  <span class="section-label">Process</span>
+  <h2 class="section-title">How BreedNet Works</h2>
+  <p class="section-subtitle">
+    A streamlined, three-step pipeline from image upload to AI-powered breed classification.
+  </p>
+
+  <div class="steps-row">
+    <div class="step-item">
+      <div class="step-num">📸</div>
+      <h4>Upload Image</h4>
+      <p>Select a clear photo of your cattle or buffalo in JPG, PNG, or JPEG format.</p>
+    </div>
+
+    <div class="step-connector">→</div>
+
+    <div class="step-item">
+      <div class="step-num">⚙️</div>
+      <h4>AI Processing</h4>
+      <p>Our trained TensorFlow model analyzes visual features and patterns in under 2 seconds.</p>
+    </div>
+
+    <div class="step-connector">→</div>
+
+    <div class="step-item">
+      <div class="step-num">📊</div>
+      <h4>Get Results</h4>
+      <p>Receive the animal type, breed name, and confidence score instantly on screen.</p>
+    </div>
+
+    <div class="step-connector">→</div>
+
+    <div class="step-item">
+      <div class="step-num">💾</div>
+      <h4>Saved to History</h4>
+      <p>Every scan is automatically logged with date and time for future reference.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PREDICTION SECTION ==================== -->
+<section class="predict-section" id="predict">
+  <div class="predict-wrapper">
+
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="section-label">AI Engine</span>
+      <h2 class="section-title" style="margin:0 auto">Identify a Breed Now</h2>
+      <p style="color:var(--text-secondary);margin-top:10px;font-size:0.95rem">
+        Upload an image and let our model do the work.
+      </p>
+    </div>
+
+    <div class="predict-card">
+
+      <!-- LEFT: Upload / Camera / Preview -->
+      <div>
+
+        <!-- TAB SWITCHER -->
+        <div class="input-tabs">
+          <button class="tab-btn active" id="tabUpload" onclick="switchTab('upload')">
+            📂 Upload Image
+          </button>
+          <button class="tab-btn" id="tabCamera" onclick="switchTab('camera')">
+            📷 Live Camera
+          </button>
+        </div>
+
+        <!-- UPLOAD ZONE -->
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="imageInput" accept="image/png,image/jpeg,image/jpg"
+                 onchange="handleFileChange(event)">
+          <div class="upload-icon">📂</div>
+          <h4>Drop your image here</h4>
+          <p>or click to browse files</p>
+          <div class="formats-row">
+            <span class="format-tag">JPG</span>
+            <span class="format-tag">PNG</span>
+            <span class="format-tag">JPEG</span>
+          </div>
+        </div>
+
+        <!-- CAMERA ZONE -->
+        <div class="camera-zone" id="cameraZone" style="display:none;">
+          <video id="cameraFeed" autoplay playsinline></video>
+          <div class="camera-overlay-ui">
+            <div class="cam-target"></div>
+          </div>
+          <div class="camera-controls">
+            <button class="cam-btn snap-btn" onclick="snapPhoto()">📸 Capture</button>
+            <button class="cam-btn stop-btn" onclick="stopCamera()">✕ Stop</button>
+          </div>
+          <p class="cam-hint">Point at a cow or buffalo and press Capture</p>
+        </div>
+
+        <!-- START CAMERA BUTTON (shown when camera tab active but not started) -->
+        <div class="start-camera-zone" id="startCameraZone" style="display:none;">
+          <div class="upload-icon">📷</div>
+          <h4>Use Live Camera</h4>
+          <p>Click below to open your device camera</p>
+          <button class="cam-start-btn" onclick="startCamera()">🎥 Open Camera</button>
+        </div>
+
+        <!-- Image Preview -->
+        <div id="previewContainer" style="display:none;">
+          <img id="previewImg" alt="Preview">
+          <div class="preview-overlay">
+            <span class="file-name" id="fileName">image.jpg</span>
+            <button class="remove-btn" onclick="removeImage()">✕ Remove</button>
+          </div>
+        </div>
+
+        <!-- Validation Banner -->
+        <div class="validation-banner" id="validationBanner" style="display:none;"></div>
+
+      </div>
+
+      <!-- RIGHT: Controls & Results -->
+      <div class="predict-right">
+        <div>
+          <h2>Ready to Analyze?</h2>
+          <p>
+            Upload a photo or use your live camera to capture a cattle or buffalo image.
+            Our AI validates the animal type before predicting the breed.
+          </p>
+        </div>
+
+        <!-- Info chips -->
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="background:rgba(61,160,107,0.12);border:1px solid rgba(61,160,107,0.25);color:var(--green-300);padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600;">🐄 Cow</span>
+          <span style="background:rgba(61,160,107,0.12);border:1px solid rgba(61,160,107,0.25);color:var(--green-300);padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600;">🐃 Buffalo</span>
+          <span style="background:rgba(245,200,66,0.12);border:1px solid rgba(245,200,66,0.25);color:var(--accent-amber);padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600;">⚡ &lt;2s Response</span>
+          <span style="background:rgba(100,150,255,0.12);border:1px solid rgba(100,150,255,0.25);color:#a0b8ff;padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600;">🛡️ AI Validated</span>
+        </div>
+
+        <button class="predict-btn" id="predictBtn" onclick="predict()">
+          <span id="btnText">🔍 Analyze Image</span>
+          <div class="spinner" id="spinner"></div>
+        </button>
+
+        <!-- Result Box -->
+        <div class="result-box" id="resultBox">
+          <div class="result-header">
+            <div class="r-icon" id="resultIcon">✅</div>
+            <div>
+              <h4 id="resultTitle">Classification Complete</h4>
+              <small id="resultTime">Just now</small>
+            </div>
+          </div>
+
+          <div class="result-grid">
+            <div class="result-pill">
+              <div class="label">Animal Type</div>
+              <div class="value" id="resAnimal">—</div>
+            </div>
+            <div class="result-pill">
+              <div class="label">Breed</div>
+              <div class="value" id="resBreed">—</div>
+            </div>
+          </div>
+
+          <div class="confidence-bar" style="margin-top:16px">
+            <div class="label">
+              <span>Confidence</span>
+              <span id="resConf">—</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" id="confBar"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /predict-card -->
+  </div>
+</section>
+
+<!-- ==================== SCAN HISTORY ==================== -->
+<section class="history-section" id="history">
+  <div class="history-header">
+    <div>
+      <span class="section-label" style="display:block">Log</span>
+      <h2 class="section-title" style="margin:0">Scan History</h2>
+    </div>
+    <button class="clear-btn" onclick="clearHistory()">🗑 Clear All</button>
+  </div>
+
+  <ul class="history-list" id="historyList">
+    <li class="empty-history" id="emptyHistory">
+      <div class="e-icon">🔬</div>
+      No scans yet. Upload an image to get started.
+    </li>
+  </ul>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-logo">🐄 BreedNet</div>
+  <p>AI-Based Image Recognition for Accurate Cattle &amp; Buffalo Classification</p>
+  <p style="margin-top:4px">© 2026 BreedNet · Capstone Project · Built with TensorFlow &amp; FastAPI</p>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+  /* ======================================================
+     STATE
+  ====================================================== */
+  let currentImageBase64 = null;   // base64 of active image (no prefix)
+  let currentImageMime   = 'image/jpeg';
+  let cameraStream       = null;
+  let activeTab          = 'upload';
+  let scanHistory        = [];
+
+  /* ======================================================
+     TAB SWITCHER
+  ====================================================== */
+  function switchTab(tab) {
+    activeTab = tab;
+    document.getElementById('tabUpload').classList.toggle('active', tab === 'upload');
+    document.getElementById('tabCamera').classList.toggle('active', tab === 'camera');
+
+    // Hide everything first
+    document.getElementById('uploadZone').style.display      = 'none';
+    document.getElementById('startCameraZone').style.display = 'none';
+    document.getElementById('cameraZone').style.display      = 'none';
+    document.getElementById('previewContainer').style.display = 'none';
+    hideValidationBanner();
+    document.getElementById('resultBox').style.display = 'none';
+    currentImageBase64 = null;
+
+    if (tab === 'upload') {
+      stopCamera();
+      document.getElementById('uploadZone').style.display = 'flex';
+    } else {
+      document.getElementById('startCameraZone').style.display = 'flex';
+    }
+  }
+
+  /* ======================================================
+     DRAG & DROP
+  ====================================================== */
+  const uploadZone = document.getElementById('uploadZone');
+
+  uploadZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadZone.classList.add('drag-over');
+  });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) processFile(file);
+  });
+
+  /* ======================================================
+     FILE UPLOAD
+  ====================================================== */
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file) processFile(file);
+  }
+
+  function processFile(file) {
+    const allowed = ['image/jpeg', 'image/jpg', 'image/png'];
+    if (!allowed.includes(file.type)) {
+      showValidationBanner('error', '⛔ Unsupported format. Please use JPG, JPEG, or PNG.');
+      return;
+    }
+    currentImageMime = file.type;
+    hideValidationBanner();
+    document.getElementById('resultBox').style.display = 'none';
+
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const dataUrl = ev.target.result;
+      currentImageBase64 = dataUrl.split(',')[1];
+
+      document.getElementById('previewImg').src = dataUrl;
+      document.getElementById('fileName').textContent = file.name;
+      document.getElementById('uploadZone').style.display = 'none';
+      document.getElementById('previewContainer').style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function removeImage() {
+    document.getElementById('imageInput').value = '';
+    document.getElementById('previewContainer').style.display = 'none';
+    document.getElementById('uploadZone').style.display = 'flex';
+    document.getElementById('resultBox').style.display = 'none';
+    hideValidationBanner();
+    currentImageBase64 = null;
+  }
+
+  /* ======================================================
+     CAMERA
+  ====================================================== */
+  async function startCamera() {
+    try {
+      cameraStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 } }
+      });
+      const video = document.getElementById('cameraFeed');
+      video.srcObject = cameraStream;
+      document.getElementById('startCameraZone').style.display = 'none';
+      document.getElementById('cameraZone').style.display = 'block';
+    } catch (err) {
+      showValidationBanner('error', '📷 Camera access denied. Please allow camera permissions and try again.');
+    }
+  }
+
+  function stopCamera() {
+    if (cameraStream) {
+      cameraStream.getTracks().forEach(t => t.stop());
+      cameraStream = null;
+    }
+    document.getElementById('cameraZone').style.display = 'none';
+    if (activeTab === 'camera' && !currentImageBase64) {
+      document.getElementById('startCameraZone').style.display = 'flex';
+    }
+  }
+
+  function snapPhoto() {
+    const video = document.getElementById('cameraFeed');
+    const canvas = document.createElement('canvas');
+    canvas.width  = video.videoWidth  || 640;
+    canvas.height = video.videoHeight || 480;
+    canvas.getContext('2d').drawImage(video, 0, 0);
+
+    currentImageMime = 'image/jpeg';
+    currentImageBase64 = canvas.toDataURL('image/jpeg', 0.92).split(',')[1];
+
+    // Show preview
+    document.getElementById('previewImg').src = 'data:image/jpeg;base64,' + currentImageBase64;
+    document.getElementById('fileName').textContent = 'live-capture.jpg';
+    stopCamera();
+    document.getElementById('startCameraZone').style.display = 'none';
+    document.getElementById('previewContainer').style.display = 'block';
+    document.getElementById('resultBox').style.display = 'none';
+    hideValidationBanner();
+  }
+
+  /* ======================================================
+     VALIDATION BANNER
+  ====================================================== */
+  function showValidationBanner(type, msg) {
+    const b = document.getElementById('validationBanner');
+    b.className = 'validation-banner ' + type;
+    b.innerHTML = msg;
+    b.style.display = 'block';
+  }
+  function hideValidationBanner() {
+    document.getElementById('validationBanner').style.display = 'none';
+  }
+
+  /* ======================================================
+     AI VALIDATION — checks if image is cow/buffalo
+     Uses Claude via Anthropic API
+  ====================================================== */
+  async function validateAnimalWithAI(base64, mime) {
+    try {
+      const resp = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 100,
+          messages: [{
+            role: 'user',
+            content: [
+              {
+                type: 'image',
+                source: { type: 'base64', media_type: mime, data: base64 }
+              },
+              {
+                type: 'text',
+                text: 'Does this image contain a cow or buffalo (cattle/bovine)? Reply with ONLY a JSON object: {"valid": true/false, "animal": "Cow"|"Buffalo"|"Unknown", "reason": "short reason"}. No extra text.'
+              }
+            ]
+          }]
+        })
+      });
+
+      const data = await resp.json();
+      const raw  = data.content?.map(c => c.text || '').join('') || '';
+      const clean = raw.replace(/```json|```/g, '').trim();
+      return JSON.parse(clean);
+    } catch {
+      // If AI validation fails, allow prediction to proceed
+      return { valid: true, animal: 'Unknown', reason: 'Validation unavailable' };
+    }
+  }
+
+  /* ======================================================
+     PREDICTION
+  ====================================================== */
+  // const MOCK_RESULTS = [
+  //   { animal: 'Cow',     breed: 'Gir',       confidence: 92, icon: '🐄' },
+  //   { animal: 'Cow',     breed: 'Sahiwal',    confidence: 87, icon: '🐄' },
+  //   { animal: 'Cow',     breed: 'Red Sindhi', confidence: 89, icon: '🐄' },
+  //   { animal: 'Buffalo', breed: 'Murrah',     confidence: 96, icon: '🐃' },
+  //   { animal: 'Buffalo', breed: 'Nili-Ravi',  confidence: 90, icon: '🐃' },
+  //   { animal: 'Cow',     breed: 'Holstein',   confidence: 94, icon: '🐄' },
+  //   { animal: 'Cow',     breed: 'Tharparkar', confidence: 88, icon: '🐄' },
+  //   { animal: 'Buffalo', breed: 'Surti',      confidence: 85, icon: '🐃' },
+  // ];
+
+  async function predict() {
+  if (!currentImageBase64) {
+    showValidationBanner('error', 'Upload an image first');
+    return;
+  }
+
+  const blob = await fetch(
+    `data:${currentImageMime};base64,${currentImageBase64}`
+  ).then(r => r.blob());
+
+  const fd = new FormData();
+  fd.append("file", blob, "image.jpg");
+
+  try {
+    const res = await fetch("http://127.0.0.1:8000/predict", {
+      method: "POST",
+      body: fd
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      showValidationBanner(
+        'error',
+        '⛔ This image is not clearly recognized as cattle/buffalo.'
+      );
+      return;
+    }
+
+    showResult({
+      animal: data.animal,
+      breed: data.breed,
+      confidence: data.confidence,
+      icon: data.animal === "Buffalo" ? "🐃" : "🐄"
+    });
+    await loadHistoryFromDB();
+  } catch {
+    showValidationBanner('error', 'Server error. Try again.');
+  }
+}
+
+  /* ======================================================
+     SHOW RESULT
+  ====================================================== */
+  function showResult(r) {
+    const resultBox = document.getElementById('resultBox');
+    resultBox.className = 'result-box';
+    resultBox.style.display = 'block';
+
+    // Restore inner HTML (in case it was replaced by error)
+    resultBox.innerHTML = `
+      <div class="result-header">
+        <div class="r-icon" id="resultIcon">${r.icon}</div>
+        <div>
+          <h4 id="resultTitle">Classification Complete</h4>
+          <small id="resultTime">${new Date().toLocaleTimeString()}</small>
+        </div>
+      </div>
+      <div class="result-grid">
+        <div class="result-pill">
+          <div class="label">Animal Type</div>
+          <div class="value" id="resAnimal">${r.animal}</div>
+        </div>
+        <div class="result-pill">
+       <div class="label">Breed</div>
+        <div 
+        class="value breed-link" 
+        onclick="openBreedInfo('${r.breed}')"
+        title="Click to learn more">${r.breed}
+  </div>
+</div>
+      </div>
+      <div class="confidence-bar" style="margin-top:16px">
+        <div class="label">
+          <span>Confidence</span>
+          <span id="resConf">${r.confidence}%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" id="confBar" style="width:0%"></div>
+        </div>
+      </div>`;
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById('confBar').style.width = r.confidence + '%';
+      }, 60);
+    });
+  }
+
+  function showError(msg) {
+    const resultBox = document.getElementById('resultBox');
+    resultBox.className = 'result-box error';
+    resultBox.style.display = 'block';
+    resultBox.innerHTML = `
+      <div class="result-header">
+        <div class="r-icon" style="background:rgba(248,112,96,0.3)">⚠️</div>
+        <div>
+          <h4 style="color:#f87060">Prediction Failed</h4>
+          <small>${msg}</small>
+        </div>
+      </div>`;
+  }
+
+  /* ======================================================
+     HISTORY
+  ====================================================== */
+async function loadHistoryFromDB() {
+  try {
+    const res = await fetch("http://127.0.0.1:8000/history");
+    const data = await res.json();
+
+    scanHistory = data.map(item => ({
+      animal: item.animal,
+      breed: item.breed,
+      confidence: item.confidence,
+      time: item.timestamp,
+      icon: item.animal === "Buffalo" ? "🐃" : "🐄"
+    }));
+
+    renderHistory();
+  } catch (err) {
+    console.error("Failed to load history:", err);
+  }
+}
+
+window.addEventListener("load", loadHistoryFromDB);
+  function addToHistory(r) {
+    scanHistory.unshift({ ...r, time: new Date().toLocaleString() });
+    renderHistory();
+  }
+
+  function renderHistory() {
+    const list = document.getElementById('historyList');
+    if (scanHistory.length === 0) {
+      list.innerHTML = '';
+      list.appendChild(createEmpty());
+      return;
+    }
+    list.innerHTML = '';
+    scanHistory.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'history-item';
+      li.innerHTML = `
+        <div class="history-icon">${item.icon}</div>
+        <div class="history-info">
+          <div class="h-animal">${item.animal} · ${item.breed}</div>
+          <div class="h-meta">🕐 ${item.time}</div>
+        </div>
+        <span class="history-conf">${item.confidence}%</span>`;
+      list.appendChild(li);
+    });
+  }
+
+  function createEmpty() {
+    const li = document.createElement('li');
+    li.className = 'empty-history';
+    li.id = 'emptyHistory';
+    li.innerHTML = `<div class="e-icon">🔬</div>No scans yet. Upload an image to get started.`;
+    return li;
+  }
+  function openBreedInfo(breed) {
+  if (!breed) return;
+
+  // Wikipedia uses underscores for spaces
+  const wikiBreed = breed.replace(/\s+/g, '_');
+
+  const url = `https://en.wikipedia.org/wiki/${wikiBreed}`;
+  window.open(url, '_blank');
+}
+
+  async function clearHistory() {
+  if (!scanHistory.length) return;
+
+  if (!confirm('Clear all scan history?')) return;
+
+  try {
+    const res = await fetch('http://127.0.0.1:8000/history', {
+      method: 'DELETE'
+    });
+
+    if (!res.ok) {
+      alert('Failed to clear history from database');
+      return;
+    }
+    scanHistory = [];
+    renderHistory();
+
+  } catch (err) {
+    console.error(err);
+    alert('Server error while clearing history');
+  }
+}
+</script>
+</body>
+</html>
