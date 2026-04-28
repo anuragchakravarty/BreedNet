@@ -1,178 +1,43 @@
-# BreedNet
+# 📁 How to Create a Folder in GitHub
 
-🐄 BreedNet – AI-Based Cattle & Buffalo Breed Identification
-BreedNet is a mobile-based AI system that identifies cattle and buffalo breeds using images. It leverages computer vision and deep learning to provide fast, accurate, and real-time breed predictions, even in rural environments with limited connectivity.
+Creating folders in GitHub is slightly different from your local system.  
+GitHub does **not support empty folders**, so you must create at least one file inside the folder.
 
-🚀 Features
-📸 Image-Based Breed Detection
-Upload or capture animal images for instant prediction
+---
 
-🤖 AI-Powered Classification
-Uses CNN-based deep learning models for accurate results
+## 🚀 Method 1: Create Folder Directly on GitHub (Easy Way)
 
-📊 Crossbreed Percentage Prediction
-Shows percentage-based breed composition (useful for Indian livestock)
+1. Open your repository on GitHub  
+2. Click on **"Add file" → "Create new file"**  
+3. In the filename field, type:
 
-⚡ Fast Response Time
-Predictions generated within 2–5 seconds
+   folder-name/file-name
 
-📱 Mobile-Friendly Design
-Works on low-power devices used by field workers
+   👉 Example:  
+   backend/main.py
 
-🌐 Offline Support
-Stores data locally and syncs when internet is available
+4. Add some content (even a single line is enough)  
+5. Scroll down and click **"Commit new file"**
 
-🔗 BPA Integration Ready
-Designed to integrate with Bharat Pashudhan App workflow
+✅ This will automatically create the folder with the file inside.
 
-🏗️ System Architecture
-BreedNet follows a microservices-based architecture:
+---
 
-API Gateway → Handles requests
+## 📤 Method 2: Upload Folder from Your System
 
-Ingestion Service → Accepts image data
+1. Click on **"Add file" → "Upload files"**  
+2. Drag and drop your folder from your computer  
+3. Click **"Commit changes"**
 
-AI Model Service → Performs prediction
+✅ Your folder and all files inside it will be uploaded.
 
-Persistence Service → Stores data
+---
 
-Reporting Service → Generates insights
+## 💻 Method 3: Using Git Commands (Recommended for Developers)
 
-🧠 Tech Stack
-🔹 Frontend
-HTML
+Create folder locally:
 
-CSS
-
-JavaScript
-
-🔹 Backend
-Python
-
-FastAPI
-
-Uvicorn
-
-🔹 AI/ML
-TensorFlow
-
-Keras
-
-OpenCV
-
-NumPy
-
-Pillow
-
-🔹 Database
-SQLite
-
-📂 Project Structure
-
-BreedNet/
-│── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-│── backend/
-│   ├── main.py
-│   ├── model.py
-│   └── utils.py
-│
-│── model/
-│   └── Best_Cattle_Breed.h5
-│
-│── dataset/
-│   └── images/
-│
-│── requirements.txt
-│── README.md
-⚙️ Installation & Setup
-1️⃣ Clone the Repository
-Bash
-
-git clone https://github.com/your-username/BreedNet.git
-cd BreedNet
-2️⃣ Create Virtual Environment
-Bash
-
-python -m venv venv
-source venv/bin/activate   # (Linux/Mac)
-venv\Scripts\activate      # (Windows)
-3️⃣ Install Dependencies
-Bash
-
-pip install -r requirements.txt
-▶️ Run the Project
-Start Backend Server
-Bash
-
-uvicorn main:app --reload
-Open Frontend
-Open index.html in browser
-
-Upload or capture image
-
-🧪 Model Training Details
-Image Size: 224 × 224
-
-Batch Size: 32
-
-Epochs: 50
-
-Data Split: 80% Training / 20% Validation
-
-Data Augmentation:
-Random Flip
-
-Rotation
-
-Zoom
-
-Evaluation Metrics:
-Accuracy
-
-Precision
-
-Recall
-
-F1-Score
-
-Confusion Matrix
-
-📊 Performance
-⏱️ Response Time: 2–5 seconds
-
-📈 High classification accuracy on trained breeds
-
-⚡ Optimized for low-resource devices
-
-🎯 Use Cases
-Field Level Workers (FLWs)
-
-Farmers
-
-Veterinary Officers
-
-Government Livestock Programs
-
-⚠️ Limitations
-Accuracy depends on image quality
-
-Limited to trained breeds
-
-Performance may drop in extreme lighting conditions
-
-🔮 Future Scope
-🌍 Multi-language support
-
-🦠 Disease detection
-
-☁️ Cloud analytics dashboard
-
-📱 Full mobile app deployment
-
-📊 Large-scale livestock data insights
-
-👨‍💻 Author
+```bash
+mkdir backend
+cd backend
+touch main.py
